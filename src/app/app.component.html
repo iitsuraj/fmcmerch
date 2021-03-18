@@ -8,13 +8,17 @@
 	<div class="t">
 			<div class="place">
 		<mat-toolbar style="border-top-left-radius: 25px;
-    border-top-right-radius: 25px;">Dark Theme<span class="example-spacer"></span><button mat-button *ngIf="loggedIn" (click)="showCart()">quantiy {{ord['dark'][d]}}</button></mat-toolbar>
+    border-top-right-radius: 25px;">Dark Theme<span class="example-spacer"></span> 
+     <button mat-fab *ngIf="loggedIn"  (click)="add('dark')" ><mat-icon>add</mat-icon></button>
+    <button mat-button *ngIf="loggedIn" (click)="showCart()">quantiy {{ord['dark'][d]}}</button>
+    <button mat-fab *ngIf="loggedIn" (click)="re('dark')" ><mat-icon>remove</mat-icon></button>
+  </mat-toolbar>
 		<div class="hold">
 		<img src="./../assets/black1.png" class="shirt">
 		<img src="./../assets/black2.png" class="shirt">
 		</div>
 <div *ngIf="loggedIn">
-  <button mat-fab (click)="add('dark')" ><mat-icon>add</mat-icon></button>
+  
 <mat-form-field appearance="fill">
         <mat-label>Size</mat-label>
        <select matNativeControl required [(ngModel)]="d">
@@ -27,7 +31,7 @@
          <option value="xxxl">XXX-Large</option>
   </select>
 </mat-form-field>
-<button mat-fab (click)="re('dark')" ><mat-icon>remove</mat-icon></button>
+ 
 </div>
 	</div>
 	</div>
@@ -35,14 +39,18 @@
 
 			<div class="place">
 		<mat-toolbar style="border-top-left-radius: 25px;
-    border-top-right-radius: 25px;">Light Theme<span class="example-spacer"></span><button mat-button *ngIf="loggedIn" (click)="showCart()">quantiy {{ord['white'][w]}}</button></mat-toolbar>
+    border-top-right-radius: 25px;">Light Theme<span class="example-spacer"></span>
+    <button mat-fab *ngIf="loggedIn"  (click)="add('white')" ><mat-icon>add</mat-icon></button>
+    <button mat-button  *ngIf="loggedIn" (click)="showCart()">quantiy {{ord['white'][w]}}</button>
+    <button mat-fab *ngIf="loggedIn" (click)="re('white')"><mat-icon>remove</mat-icon></button>
+  </mat-toolbar>
 		<div class="hold">
 		<img src="./../assets/white1.png" class="shirt">
 		<img src="./../assets/white2.png" class="shirt">
 		</div>
 <div *ngIf="loggedIn">
-  <button mat-fab (click)="add('white')" ><mat-icon>add</mat-icon></button>
-<mat-form-field appearance="fill">
+  
+<mat-form-field appearance="fill" >
         <mat-label>Size</mat-label>
        <select matNativeControl required   [(ngModel)]="w">
         <option value="xs" >Extra Small</option>
@@ -54,13 +62,20 @@
          <option value="xxxl" >XXX-Large</option>
   </select>
 </mat-form-field>
-<button mat-fab (click)="re('white')"><mat-icon>remove</mat-icon></button>
+ 
 </div>
 	</div>
 	</div>
 	<div class="base">
+       <div class="car m">
+    <img src="./../assets/land.png" style="width:100%;">
+  </div>
   <div class="car">
     <div class="title">Conatcts</div>
+    <div class="title4">Shikhar Choudhary</div>
+    <div class="title4">97613 27327</div>
+    <div class="title4">Gaurav Verma</div>
+    <div class="title4">70911 40432</div>
   </div>
    <div class="car">
     <div class="title">Social Media</div>
@@ -73,9 +88,6 @@
     <i class="fa fa-reddit" aria-hidden="true"></i>
   </div>
   </div>
-   <div class="car m">
-    <img src="./../assets/land.png" style="width:100%;">
-  </div>
 </div>
   <div class="base2">
   <div class="car2" (click)="tac()">
@@ -86,6 +98,9 @@
   </div>
    <div class="car2" (click)="refund()">
     <div class="title3">Refund Policy</div>
+  </div>
+    <div class="car2" (click)="faq()">
+    <div class="title3">FAQ</div>
   </div>
 </div>
 </div>

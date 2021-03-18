@@ -9,6 +9,7 @@ import { PayComponent } from './pay/pay.component';
 import { SepComponent } from './sep/sep.component';
 import { DepComponent } from './dep/dep.component';
 import { AepComponent } from './aep/aep.component';
+import { FaqComponent } from './faq/faq.component';
 import { AppRoutingModule } from './app-routing.module';
 import {HttpClientModule} from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
@@ -21,6 +22,7 @@ import {
 import {NgxWebstorageModule} from 'ngx-webstorage';
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -28,7 +30,8 @@ import {NgxWebstorageModule} from 'ngx-webstorage';
     PayComponent,
     SepComponent,
     DepComponent,
-    AepComponent
+    AepComponent,
+    FaqComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'serverApp' }),

@@ -5,6 +5,7 @@ import {LocalStorageService} from 'ngx-webstorage'
 import { MatDialog } from '@angular/material/dialog';
 import {SepComponent} from './sep/sep.component';
 import {AepComponent} from './aep/aep.component';
+import { FaqComponent } from './faq/faq.component';
 import {DepComponent} from './dep/dep.component';
 import { ProfileComponent } from './profile/profile.component';
 import { PayComponent } from './pay/pay.component';
@@ -172,6 +173,14 @@ this.storage.store("orders",this.ord);
 
 	tac():void{
 		const dialogRef = this.dialog.open(DepComponent,{width:'90%',height:"90%",maxWidth:"600px"});
+		dialogRef.afterClosed().subscribe(result => {
+                     console.log('The T&C was closed');
+                     this.dialog.closeAll();
+                             });
+	}
+
+	faq():void{
+		const dialogRef = this.dialog.open(FaqComponent,{width:'90%',height:"90%",maxWidth:"700px"});
 		dialogRef.afterClosed().subscribe(result => {
                      console.log('The T&C was closed');
                      this.dialog.closeAll();
