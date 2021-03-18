@@ -93,7 +93,7 @@ this.storage.store("orders",this.ord);
                      console.log('The notice was closed');
                      this.dialog.closeAll();
                              });
-			setTimeout(() => {  this.dialog.closeAll() }, 4000);
+		setTimeout(() => {  this.dialog.closeAll() }, 8000);
 	}
 	login():void{
 		 this.authService.signIn(GoogleLoginProvider.PROVIDER_ID);

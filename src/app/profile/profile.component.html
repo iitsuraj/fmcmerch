@@ -10,23 +10,23 @@
 
      <mat-form-field class="example-full-width">
       <mat-label>Roll Number</mat-label>
-      <input matInput placeholder="" [(value)]="detail.roll" (input)="detail.roll = $event.target.value">
+      <input matInput placeholder="" [(value)]="detail.roll" (input)="detail.roll = $event.target.value" #roll>
     </mat-form-field>
 
     <mat-form-field class="example-full-width">
       <mat-label>Year</mat-label>
-      <select matNativeControl required [(ngModel)]="detail.year">
-        <option value="1">Part 1</option>
-        <option value="2">Part 2</option>
-        <option value="3">Part 3</option>
-        <option value="4">Part 4</option>
-        <option value="5">Part 5</option>
+      <select matNativeControl required [(ngModel)]="detail.year"  #year>
+        <option value="1">&#8544;</option>
+        <option value="2">&#8545;</option>
+        <option value="3">&#8546;</option>
+        <option value="4">&#8547;</option>
+        <option value="5">&#8548;</option>
       </select>
     </mat-form-field>
 
     <mat-form-field class="example-full-width">
       <mat-label>Address</mat-label>
-      <input matInput placeholder="" [(value)]="detail.address1" (input)="detail.address1 = $event.target.value">
+      <input matInput placeholder="" [(value)]="detail.address1" (input)="detail.address1 = $event.target.value" #address>
     </mat-form-field>
 
     <mat-form-field class="example-full-width">
@@ -37,17 +37,17 @@
 
     <mat-form-field class="example-full-width">
       <mat-label>City</mat-label>
-      <input matInput placeholder="Varanasi" [(value)]="detail.city" (input)="detail.city = $event.target.value">
+      <input matInput placeholder="Varanasi" [(value)]="detail.city" (input)="detail.city = $event.target.value" #city>
     </mat-form-field>
 
     <mat-form-field class="example-full-width" >
       <mat-label>District</mat-label>
-      <input matInput placeholder="Varanasi" [(value)]="detail.district" (input)="detail.district = $event.target.value">
+      <input matInput placeholder="Varanasi" [(value)]="detail.district" (input)="detail.district = $event.target.value" #district>
     </mat-form-field>
 
    <mat-form-field class="example-full-width" >
       <mat-label>State</mat-label>
-      <select matNativeControl required [(ngModel)]="detail.state">
+      <select matNativeControl required [(ngModel)]="detail.state" #state>
         <option value="Andhra Pradesh">Andhra Pradesh</option>
 <option value="Arunachal Pradesh">Arunachal Pradesh</option>
 <option value="Assam">Assam</option>
@@ -84,7 +84,7 @@
       <mat-hint align="end">{{postalCode.value.length}} / 6</mat-hint>
   </mat-form-field>
 
-  <button mat-raised-button mat-dialog-close color="primary" (click)="buy()">submit</button>
+  <button mat-raised-button mat-dialog-close color="primary" (click)="buy()" [disabled]="(phone.value.length != 10) || (postalCode.value.length != 6) || (!district.value) || (!state.value) || (!address.value) || (!year.value)|| (!city.value) || (!roll.value)">submit</button>
   <button mat-raised-button color="warn" mat-dialog-close style="
     position: relative;
     float: right;

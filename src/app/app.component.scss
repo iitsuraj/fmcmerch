@@ -76,6 +76,7 @@
         font-weight: 900;
     display: flex;
     align-items: center;
+    color:white;
     flex-direction: column;
 }
 
@@ -88,6 +89,7 @@
     font-weight: 900;
     display: flex;
     flex-wrap:wrap;
+    color:white;
     align-items: center;
 }
 
@@ -161,6 +163,7 @@
     font-weight: 900;
     display: flex;
     align-items: center;
+    color:white;
     flex-direction: column;
     font-family: "BigNoodleTitling";
 }
@@ -174,6 +177,7 @@
     text-transform: uppercase;
     font-weight: 900;
     display: flex;
+    color:white;
     align-items: center;
     flex-direction: column;
     font-family: "BigNoodleTitling";
@@ -182,4 +186,12 @@
 select{
     background:white;
     color:black;
+}
+
+.adv{
+padding:20px 10px 10px 20px;
+max-width:800px;
+width:90%;
+    position: relative;
+    top: 120px;
 }
