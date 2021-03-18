@@ -3,12 +3,13 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
-    "build": "ng build",
+    "start": "npm run serve:ssr",
+    "build": "npm run build:ssr",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
     "dev:ssr": "ng run fmc:serve-ssr",
+    "postinstall": "ngcc --properties es5 browser module main --first-only",
     "serve:ssr": "node dist/fmc/server/main.js",
     "build:ssr": "ng build --prod && ng run fmc:server:production",
     "prerender": "ng run fmc:prerender"
