@@ -1,0 +1,91 @@
+<router-outlet></router-outlet>
+<mat-toolbar style="position: fixed;z-index: 150;">Merchandise <span class="example-spacer"></span>
+	<button mat-button *ngIf="!loggedIn" (click)="login()">Login</button>
+  <button mat-button *ngIf="loggedIn" (click)="signOut()">Sign Out</button>
+	<button mat-button *ngIf="loggedIn" (click)="buy()" >Buy</button>
+</mat-toolbar>
+<div class="main">
+	<div class="t">
+			<div class="place">
+		<mat-toolbar style="border-top-left-radius: 25px;
+    border-top-right-radius: 25px;">Dark Theme<span class="example-spacer"></span><button mat-button *ngIf="loggedIn" (click)="showCart()">quantiy {{ord['dark'][d]}}</button></mat-toolbar>
+		<div class="hold">
+		<img src="./../assets/black1.png" class="shirt">
+		<img src="./../assets/black2.png" class="shirt">
+		</div>
+<div *ngIf="loggedIn">
+  <button mat-fab (click)="add('dark')" ><mat-icon>add</mat-icon></button>
+<mat-form-field appearance="fill">
+        <mat-label>Size</mat-label>
+       <select matNativeControl required [(ngModel)]="d">
+        <option value="xs"  >Extra Small</option>
+        <option value="s" >Small</option>
+        <option value="m">Medium</option>
+         <option value="l" >Large</option>
+         <option value="xl">X-Large</option>
+         <option value="xxl">XX-Large</option>
+         <option value="xxxl">XXX-Large</option>
+  </select>
+</mat-form-field>
+<button mat-fab (click)="re('dark')" ><mat-icon>remove</mat-icon></button>
+</div>
+	</div>
+	</div>
+	<div class="t">
+
+			<div class="place">
+		<mat-toolbar style="border-top-left-radius: 25px;
+    border-top-right-radius: 25px;">Light Theme<span class="example-spacer"></span><button mat-button *ngIf="loggedIn" (click)="showCart()">quantiy {{ord['white'][w]}}</button></mat-toolbar>
+		<div class="hold">
+		<img src="./../assets/white1.png" class="shirt">
+		<img src="./../assets/white2.png" class="shirt">
+		</div>
+<div *ngIf="loggedIn">
+  <button mat-fab (click)="add('white')" ><mat-icon>add</mat-icon></button>
+<mat-form-field appearance="fill">
+        <mat-label>Size</mat-label>
+       <select matNativeControl required   [(ngModel)]="w">
+        <option value="xs" >Extra Small</option>
+        <option value="s"  >Small</option>
+        <option value="m" >Medium</option>
+         <option value="l" >Large</option>
+         <option value="xl">X-Large</option>
+         <option value="xxl" >XX-Large</option>
+         <option value="xxxl" >XXX-Large</option>
+  </select>
+</mat-form-field>
+<button mat-fab (click)="re('white')"><mat-icon>remove</mat-icon></button>
+</div>
+	</div>
+	</div>
+	<div class="base">
+  <div class="car">
+    <div class="title">Conatcts</div>
+  </div>
+   <div class="car">
+    <div class="title">Social Media</div>
+    <div class="title2">   
+    <i class="fa fa-facebook" aria-hidden="true"></i>
+    <i class="fa fa-instagram" aria-hidden="true"></i>
+    <i class="fa fa-twitter" aria-hidden="true"></i>
+    <i class="fa fa-linkedin" aria-hidden="true"></i>
+    <i class="fa fa-youtube-play" aria-hidden="true"></i>
+    <i class="fa fa-reddit" aria-hidden="true"></i>
+  </div>
+  </div>
+   <div class="car m">
+    <img src="./../assets/land.png" style="width:100%;">
+  </div>
+</div>
+  <div class="base2">
+  <div class="car2" (click)="tac()">
+    <div class="title3">Terms and conditions</div>
+  </div>
+   <div class="car2" (click)="tac()">
+    <div class="title3">Privacy Policy</div>
+  </div>
+   <div class="car2" (click)="refund()">
+    <div class="title3">Refund Policy</div>
+  </div>
+</div>
+</div>
