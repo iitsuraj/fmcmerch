@@ -10,9 +10,9 @@
 			<div class="place">
 		<mat-toolbar style="border-top-left-radius: 25px;
     border-top-right-radius: 25px;">Dark Theme<span class="example-spacer"></span> 
-     <button mat-fab *ngIf="loggedIn"  (click)="add('dark')" ><mat-icon>add</mat-icon></button>
-    <button mat-button *ngIf="loggedIn" (click)="showCart()">quantiy {{ord['dark'][d]}}</button>
-    <button mat-fab *ngIf="loggedIn" (click)="re('dark')" ><mat-icon>remove</mat-icon></button>
+     <button mat-mini-fab *ngIf="loggedIn"  (click)="add('dark')" ><mat-icon>add</mat-icon></button>
+    <button mat-button *ngIf="loggedIn" (click)="showCart()">Quantity {{ord['dark'][d]}}</button>
+    <button mat-mini-fab *ngIf="loggedIn" (click)="re('dark')" ><mat-icon>remove</mat-icon></button>
   </mat-toolbar>
 		<div class="hold">
 		<img src="./../assets/black1.png" class="shirt">
@@ -41,9 +41,9 @@
 			<div class="place">
 		<mat-toolbar style="border-top-left-radius: 25px;
     border-top-right-radius: 25px;">Light Theme<span class="example-spacer"></span>
-    <button mat-fab *ngIf="loggedIn"  (click)="add('white')" ><mat-icon>add</mat-icon></button>
-    <button mat-button  *ngIf="loggedIn" (click)="showCart()">quantiy {{ord['white'][w]}}</button>
-    <button mat-fab *ngIf="loggedIn" (click)="re('white')"><mat-icon>remove</mat-icon></button>
+    <button mat-mini-fab *ngIf="loggedIn"  (click)="add('white')" ><mat-icon>add</mat-icon></button>
+    <button mat-button  *ngIf="loggedIn" (click)="showCart()">Quantity {{ord['white'][w]}}</button>
+    <button mat-mini-fab *ngIf="loggedIn" (click)="re('white')"><mat-icon>remove</mat-icon></button>
   </mat-toolbar>
 		<div class="hold">
 		<img src="./../assets/white1.png" class="shirt">
