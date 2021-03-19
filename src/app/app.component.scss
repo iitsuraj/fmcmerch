@@ -119,6 +119,9 @@
     box-shadow:none;
 }
 
+::ng-deep .mat-form-field-appearance-fill .mat-form-field-flex {
+    background-color: white;
+}
 .base{
     width: 100%;
     display: flex;

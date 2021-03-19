@@ -101,17 +101,17 @@ this.storage.store("orders",this.ord);
 		 this.authService.signIn(GoogleLoginProvider.PROVIDER_ID);
 		 this.log_sub = this.authService.authState.subscribe((user:any)=>{
 		 	this.http.post("https://fmc-weekend-shirt.herokuapp.com/google/login",{"token":user.idToken} ,{withCredentials:true}).subscribe((res)=>{
-		 		if(res["message"] == "success"){
-		 			this.storage.store("user",user);
-		 		}
-		 		else if(res["message"] == "ni"){
+		 		console.log(res);
+		 		if(res["message"] == "ni"){
 		 			this.openSnackBar("Please use institue Email ID","Dance");
 		 		}
 		 		else if(res["message"] == "error  in verify"){
 		 			this.openSnackBar("Error","Dance");
 		 		}
+		 		else if(res["message"] == "success"){
+		 			this.storage.store("user",user);
+		 		}
 		 	})
-		 	this.storage.store("user",user);
 		 });
 
 	}
@@ -121,7 +121,8 @@ this.storage.store("orders",this.ord);
 		this.storage.clear("user");
 		this.storage.clear("orders");
 		this.log_sub.unsubscribe();
-		this.http.get("https://fmc-weekend-shirt.herokuapp.com/google/logout",{withCredentials:true}).subscribe((res)=>{console.log(res)})
+		this.http.get("https://fmc-weekend-shirt.herokuapp.com/google/logout",{withCredentials:true}).subscribe((res)=>{console.log(res)});
+		window.location.reload();
 	}
 
 	add(color:string){
