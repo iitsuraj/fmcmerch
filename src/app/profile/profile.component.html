@@ -4,13 +4,13 @@
 
 	<mat-form-field class="example-full-width">
       <mat-label>Phone number</mat-label>
-      <input matInput #phone minlength="10" placeholder="220115" [(value)]="detail.contact" (input)="detail.contact = $event.target.value">
+      <input matInput #phone minlength="10" placeholder="220115" [(value)]="detail.phone" (input)="detail.phone = $event.target.value">
       <mat-hint align="end">{{phone.value.length}} / 10</mat-hint>
     </mat-form-field>
 
      <mat-form-field class="example-full-width">
       <mat-label>Roll Number</mat-label>
-      <input matInput placeholder="" [(value)]="detail.roll" (input)="detail.roll = $event.target.value" #roll>
+      <input matInput placeholder="" [(value)]="detail.rollno" (input)="detail.rollno = $event.target.value" #rollno>
     </mat-form-field>
 
     <mat-form-field class="example-full-width">
@@ -84,7 +84,7 @@
       <mat-hint align="end">{{postalCode.value.length}} / 6</mat-hint>
   </mat-form-field>
 
-  <button mat-raised-button mat-dialog-close color="primary" (click)="buy()" [disabled]="(phone.value.length != 10) || (postalCode.value.length != 6) || (!district.value) || (!state.value) || (!address.value) || (!year.value)|| (!city.value) || (!roll.value)">submit</button>
+  <button mat-raised-button mat-dialog-close color="primary" (click)="buy()" [disabled]="(phone.value.length != 10) || (postalCode.value.length != 6) || (!district.value) || (!state.value) || (!address.value) || (!year.value)|| (!city.value) || (!rollno.value)">submit</button>
   <button mat-raised-button color="warn" mat-dialog-close style="
     position: relative;
     float: right;

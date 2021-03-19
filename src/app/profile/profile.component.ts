@@ -4,15 +4,34 @@ import {HttpClient} from '@angular/common/http';
 import {LocalStorageService} from 'ngx-webstorage';
 declare var Razorpay:any;
 interface details {
-	contact:number;
+	phone:number;
 	address1:string;
 	address2:string;
 	state:string;
 	district:string;
 	city:string;
 	pincode:number;
-  roll:number;
+  rollno:number;
   year:number;
+}
+interface sizes{
+  xs:number;
+  s:number;
+  m:number;
+  l:number;
+  xl:number;
+  xxl:number;
+  xxxl:number;
+}
+
+interface orders{
+  dark:sizes;
+  white:sizes;
+}
+
+interface pay{
+  order:orders;
+  detail:details;
 }
 
 @Component({
@@ -22,14 +41,14 @@ interface details {
 })
 export class ProfileComponent implements OnInit {
 
-	 detail:details = {	contact:null,
+	 detail:details = {	phone:null,
 	address1:"",
 	address2:"",
 	state:"",
 	district:"",
 	city:"",
 	pincode:null,
-  roll:null,
+  rollno:null,
   year:null,
 };
 
@@ -41,7 +60,7 @@ export class ProfileComponent implements OnInit {
 
   validate(): void {
     console.log(this.detail)
-  	if(this.detail.contact.toString().length != 10){
+  	if(this.detail.phone.toString().length != 10){
   		this.openSnackBar("enter valid number","Dance")
   	}
   	if(this.detail.pincode.toString().length != 6){
@@ -56,7 +75,7 @@ export class ProfileComponent implements OnInit {
   }
 
   buy():void{
-    this.http.post("https://fmc-weekend-shirt.herokuapp.com/checkout-tshirt",this.storage.retrieve('orders'), {withCredentials:true}).subscribe((res:any)=>{
+    this.http.post("https://fmc-weekend-shirt.herokuapp.com/checkout-tshirt",{"order":this.storage.retrieve('orders'),"detail":this.detail}, {withCredentials:true}).subscribe((res:any)=>{
       console.log(res);
     let  a :any = new Razorpay({
     "key": "rzp_test_BZmqKg2c3vGbFd", // Enter the Key ID generated from the Dashboard
@@ -72,7 +91,7 @@ export class ProfileComponent implements OnInit {
         "prefill": {
         "name": this.user.name,
         "email": this.user.email,
-        "contact":this.detail.contact
+        "contact":this.detail.phone
     },    
     "theme": {
         "color": "#7b1fa2"
