@@ -10,6 +10,7 @@ import {DepComponent} from './dep/dep.component';
 import { ProfileComponent } from './profile/profile.component';
 import { PayComponent } from './pay/pay.component';
 import {HttpClient} from '@angular/common/http';
+import {MatSnackBar} from '@angular/material/snack-bar';
 declare var Razorpay:any;
 
 interface sizes{
@@ -51,7 +52,8 @@ export class AppComponent {
 
 	cartsw :boolean = true;
 
-	constructor(private authService: SocialAuthService,
+	constructor(private _snackBar: MatSnackBar,
+		private authService: SocialAuthService,
 		private storage:LocalStorageService,
 		public dialog:MatDialog,
 		private http:HttpClient){
@@ -98,7 +100,17 @@ this.storage.store("orders",this.ord);
 	login():void{
 		 this.authService.signIn(GoogleLoginProvider.PROVIDER_ID);
 		 this.log_sub = this.authService.authState.subscribe((user:any)=>{
-		 	this.http.post("https://fmc-weekend-shirt.herokuapp.com/google/login",{"token":user.idToken} ,{withCredentials:true}).subscribe((res)=>{console.log(res)})
+		 	this.http.post("https://fmc-weekend-shirt.herokuapp.com/google/login",{"token":user.idToken} ,{withCredentials:true}).subscribe((res)=>{
+		 		if(res["message"] == "success"){
+		 			this.storage.store("user",user);
+		 		}
+		 		else if(res["message"] == "ni"){
+		 			this.openSnackBar("Please use institue Email ID","Dance");
+		 		}
+		 		else if(res["message"] == "error  in verify"){
+		 			this.openSnackBar("Error","Dance");
+		 		}
+		 	})
 		 	this.storage.store("user",user);
 		 });
 
@@ -110,7 +122,6 @@ this.storage.store("orders",this.ord);
 		this.storage.clear("orders");
 		this.log_sub.unsubscribe();
 		this.http.get("https://fmc-weekend-shirt.herokuapp.com/google/logout",{withCredentials:true}).subscribe((res)=>{console.log(res)})
-
 	}
 
 	add(color:string){
@@ -154,6 +165,12 @@ this.storage.store("orders",this.ord);
 		}
 		console.log(this.d,this.w)
 	}
+
+	openSnackBar(message: string, action: string) {
+    this._snackBar.open(message, action, {
+      duration: 2000,
+    });
+  }
 
 	showCart():void{
 		if(this.cartsw){
