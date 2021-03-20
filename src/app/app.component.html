@@ -1,8 +1,8 @@
 <router-outlet></router-outlet>
-<mat-toolbar style="position: fixed;z-index: 150;">Merchandise <span class="example-spacer"></span>
-	<button mat-button *ngIf="!loggedIn" (click)="login()">Login</button>
-  <button mat-button *ngIf="loggedIn" (click)="signOut()">Sign Out</button>
-	<button mat-button *ngIf="loggedIn" (click)="buy()" >Buy</button>
+<mat-toolbar style="position: fixed;z-index: 150;">   <img src="./../assets/logo.png" style="height:100%;"   ><span class="example-spacer"></span>
+	<button mat-button *ngIf="!loggedIn" (click)="login()" color>Login</button>
+  <button mat-raised-button *ngIf="loggedIn" color="warn" (click)="signOut()">Sign Out</button>&nbsp;
+	<button mat-raised-button *ngIf="loggedIn" color="accent" (click)="buy()" >Buy</button>
 </mat-toolbar>
 <div class="main">
    <img src="./../assets/adv.jpeg" class="adv">
@@ -67,40 +67,40 @@
 </div>
 	</div>
 	</div>
-	<div class="base">
+  <div style="padding-top:20px; width: 100%;">
+      <div class="base">
        <div class="car m">
-    <img src="./../assets/land.png" style="width:100%;">
+    <img src="./../assets/logo.png" style="width:100%;">
+
+    <i class="fa fa-facebook" aria-hidden="true"></i>
+    <i class="fa fa-instagram" aria-hidden="true"></i>
+    <i class="fa fa-linkedin" aria-hidden="true"></i>
+    <i class="fa fa-youtube-play" aria-hidden="true"></i>
+
   </div>
   <div class="car">
     <div class="title">Conatcts</div>
+    <br>
     <div class="title4">Shikhar Choudhary</div>
     <div class="title4">97613 27327</div>
+    <br><br>
     <div class="title4">Gaurav Verma</div>
     <div class="title4">70911 40432</div>
   </div>
-   <div class="car">
-    <div class="title">Social Media</div>
-    <div class="title2">   
-    <i class="fa fa-facebook" aria-hidden="true"></i>
-    <i class="fa fa-instagram" aria-hidden="true"></i>
-    <i class="fa fa-twitter" aria-hidden="true"></i>
-    <i class="fa fa-linkedin" aria-hidden="true"></i>
-    <i class="fa fa-youtube-play" aria-hidden="true"></i>
-    <i class="fa fa-reddit" aria-hidden="true"></i>
-  </div>
-  </div>
 </div>
+  </div>
+<div class="line"></div>
   <div class="base2">
-  <div class="car2" (click)="tac()">
+  <div class="car2" (click)="pop_up('tac')">
     <div class="title3">Terms and conditions</div>
   </div>
-   <div class="car2" (click)="tac()">
+   <div class="car2" (click)="pop_up('tac')">
     <div class="title3">Privacy Policy</div>
   </div>
-   <div class="car2" (click)="refund()">
+   <div class="car2" (click)="pop_up('ref')">
     <div class="title3">Refund Policy</div>
   </div>
-    <div class="car2" (click)="faq()">
+    <div class="car2" (click)="pop_up('faq')">
     <div class="title3">FAQ</div>
   </div>
 </div>

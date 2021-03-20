@@ -6,9 +6,7 @@ import { MatDialog } from '@angular/material/dialog';
 import {SepComponent} from './sep/sep.component';
 import {AepComponent} from './aep/aep.component';
 import { FaqComponent } from './faq/faq.component';
-import {DepComponent} from './dep/dep.component';
 import { ProfileComponent } from './profile/profile.component';
-import { PayComponent } from './pay/pay.component';
 import {HttpClient} from '@angular/common/http';
 import {MatSnackBar} from '@angular/material/snack-bar';
 declare var Razorpay:any;
@@ -89,6 +87,13 @@ this.storage.store("orders",this.ord);
  this.pop_notice();
  }
 	}
+
+	pop_up(dia:string):void{
+		const dialogRef = this.dialog.open(FaqComponent,{ data: { name: dia },width:'90%',height:"90%",maxWidth:"700px"});
+		dialogRef.afterClosed().subscribe(result => {
+                     console.log('The T&C was closed');
+                     this.dialog.closeAll();
+                             });	}
 	pop_notice():void{
 		const dialogRef = this.dialog.open(AepComponent,{width:'90%',height:"90%",maxWidth:"600px"});
 		dialogRef.afterClosed().subscribe(result => {
@@ -103,10 +108,10 @@ this.storage.store("orders",this.ord);
 		 	this.http.post("https://fmc-weekend-shirt.herokuapp.com/google/login",{"token":user.idToken} ,{withCredentials:true}).subscribe((res)=>{
 		 		console.log(res);
 		 		if(res["message"] == "ni"){
-		 			this.openSnackBar("Please use institue Email ID","Dance");
+		 			this.openSnackBar("Please use institue Email ID","hide");
 		 		}
 		 		else if(res["message"] == "error  in verify"){
-		 			this.openSnackBar("Error","Dance");
+		 			this.openSnackBar("Error","hide");
 		 		}
 		 		else if(res["message"] == "success"){
 		 			this.storage.store("user",user);
@@ -189,29 +194,6 @@ this.storage.store("orders",this.ord);
 		}
 	}
 
-	tac():void{
-		const dialogRef = this.dialog.open(DepComponent,{width:'90%',height:"90%",maxWidth:"600px"});
-		dialogRef.afterClosed().subscribe(result => {
-                     console.log('The T&C was closed');
-                     this.dialog.closeAll();
-                             });
-	}
-
-	faq():void{
-		const dialogRef = this.dialog.open(FaqComponent,{width:'90%',height:"90%",maxWidth:"700px"});
-		dialogRef.afterClosed().subscribe(result => {
-                     console.log('The T&C was closed');
-                     this.dialog.closeAll();
-                             });
-	}
-
-	refund():void {
-		const dialogRef = this.dialog.open(PayComponent,{width:'90%',height:"90%",maxWidth:"600px"});
-		dialogRef.afterClosed().subscribe(result => {
-                     console.log('The T&C was closed');
-                     this.dialog.closeAll();
-                             });
-	}
 
 
 

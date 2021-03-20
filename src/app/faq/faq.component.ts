@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit ,Inject} from '@angular/core';
+import {MAT_DIALOG_DATA} from '@angular/material/dialog';
 
 @Component({
   selector: 'app-faq',
@@ -6,8 +7,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./faq.component.scss']
 })
 export class FaqComponent implements OnInit {
+	data:string;
 
-  constructor() { }
+  constructor(@Inject(MAT_DIALOG_DATA) public sup: any) { 
+  	this.data =  this.sup.name;
+  }
 
   ngOnInit(): void {
   }

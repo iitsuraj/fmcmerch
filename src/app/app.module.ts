@@ -5,9 +5,7 @@ import { AppComponent } from './app.component';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './material/material.module';
 import { ProfileComponent } from './profile/profile.component';
-import { PayComponent } from './pay/pay.component';
 import { SepComponent } from './sep/sep.component';
-import { DepComponent } from './dep/dep.component';
 import { AepComponent } from './aep/aep.component';
 import { FaqComponent } from './faq/faq.component';
 import { AppRoutingModule } from './app-routing.module';
@@ -27,9 +25,7 @@ import {NgxWebstorageModule} from 'ngx-webstorage';
   declarations: [
     AppComponent,
     ProfileComponent,
-    PayComponent,
     SepComponent,
-    DepComponent,
     AepComponent,
     FaqComponent
   ],
